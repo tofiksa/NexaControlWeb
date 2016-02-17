@@ -41,7 +41,7 @@ void loop()
 {
   delay(1000); //3600000
   HttpClient client;
-  client.get("http://jenkins.hioa.no/ascii.txt");
+  client.get("http://localhost/ascii.txt");
 
   unsigned long sender = 87729750; //20620886
   unsigned int recipient = 0;
@@ -63,51 +63,4 @@ void loop()
       homeEasy.sendAdvancedProtocolMessage(sender, recipient, command, group);      
     }
   }
-  //SerialUSB.flush();
-  //delay(3000);
-  //command = false;
-  //homeEasy.sendAdvancedProtocolMessage(sender, recipient, command, group);
-}
-
-
-/**
- * Print the details of the advanced protocol message.
- */
-void printAdvancedResult(unsigned long sender, unsigned int recipient, bool on, bool group)
-{
-	Serial.println("advanced protocol message");
-	
-	Serial.print("sender ");
-	Serial.println(sender);
-	
-	Serial.print("recipient ");
-	Serial.println(recipient);
-	
-	Serial.print("on ");
-	Serial.println(on);
-	
-	Serial.print("group ");
-	Serial.println(group);
-	
-	Serial.println();
-}
-
-
-/**
- * Print the details of the simple protocol message.
- */
-void printSimpleResult(unsigned int sender, unsigned int recipient, bool on)
-{
-	Serial.println("simple protocol message");
-	
-	Serial.print("sender ");
-	Serial.println(sender);
-	
-	Serial.print("recipient ");
-	Serial.println(recipient);
-	
-	Serial.print("on ");
-	Serial.println(on);
-	
-	Serial.println();
 }
